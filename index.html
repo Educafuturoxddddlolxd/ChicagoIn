@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chicago In | Hamburguesas, alitas y boneless en Distrito Tec, Monterrey</title>
+<meta name="description" content="Chicago In: hamburguesas, boneless y alitas a pasos del Tec de Monterrey. Porciones generosas, precios para estudiantes y pedidos por WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#17120f; --bg-2:#211a15; --bg-3:#2c231c;
+  --brick:#c8372d; --ember:#e8833a; --white:#fffaf5; --muted:#b9ab9d;
+  --line:rgba(255,250,245,.12);
+  --display:"Anton","Impact","Arial Narrow",sans-serif;
+  --body:"DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --r:16px; --shadow:0 10px 30px rgba(0,0,0,.35);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{font-family:var(--body);background:var(--bg);color:var(--white);line-height:1.6;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--ember);outline-offset:3px;border-radius:6px}
+.wrap{width:min(1120px,100% - 2.5rem);margin-inline:auto}
+section{padding:5rem 0}
+h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:.01em;line-height:1.05}
+h2{font-size:clamp(2.2rem,5vw,3.4rem);margin-bottom:.6rem}
+.lead{color:var(--muted);max-width:56ch;margin-bottom:2rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.85rem 1.5rem;border-radius:999px;font-weight:700;border:2px solid transparent;cursor:pointer;font:inherit;font-weight:700;transition:transform .2s,background .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:var(--brick);color:var(--white);box-shadow:0 8px 22px rgba(200,55,45,.4)}
+.btn-primary:hover{background:#d9443a}
+.btn-ghost{border-color:var(--line);color:var(--white);background:transparent}
+.btn-ghost:hover{border-color:var(--ember);color:var(--ember)}
+.btn-wa{background:#25d366;color:#07311a}
+
+/* Header */
+header{position:sticky;top:0;z-index:50;background:rgba(23,18,15,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px;gap:1rem}
+.logo{font-family:var(--display);font-size:1.7rem;letter-spacing:.02em}
+.logo span{color:var(--ember)}
+.links{display:flex;align-items:center;gap:1.6rem;list-style:none}
+.links a{color:var(--muted);font-weight:500;transition:color .2s}
+.links a:hover{color:var(--white)}
+.links .btn{color:var(--white);padding:.55rem 1.1rem}
+.burger{display:none;background:none;border:0;color:var(--white);width:44px;height:44px;cursor:pointer}
+.burger span,.burger span::before,.burger span::after{display:block;width:24px;height:2.5px;background:currentColor;border-radius:2px;position:relative;transition:.25s;margin:auto}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0}
+.burger span::before{top:-7px}.burger span::after{top:7px}
+.burger[aria-expanded="true"] span{background:transparent}
+.burger[aria-expanded="true"] span::before{top:0;transform:rotate(45deg)}
+.burger[aria-expanded="true"] span::after{top:0;transform:rotate(-45deg)}
+
+/* Hero */
+.hero{padding:4.5rem 0 5rem;background:
+  radial-gradient(900px 420px at 85% 0%,rgba(232,131,58,.22),transparent 60%),
+  radial-gradient(700px 400px at 0% 100%,rgba(200,55,45,.22),transparent 60%),var(--bg)}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:3rem;align-items:center}
+.hero h1{font-size:clamp(3.2rem,9vw,6.6rem);text-transform:uppercase}
+.hero h1 em{font-style:normal;color:var(--ember)}
+.hero p{font-size:1.15rem;color:var(--muted);max-width:50ch;margin:1.2rem 0 1.8rem}
+.cta-row{display:flex;flex-wrap:wrap;gap:.8rem;margin-bottom:1.8rem}
+.badges{display:flex;flex-wrap:wrap;gap:.6rem;list-style:none}
+.badges li{padding:.4rem .9rem;border:1px solid var(--line);border-radius:999px;font-size:.9rem;background:rgba(255,255,255,.04)}
+.hero-art{position:relative}
+.hero-art img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:28px;box-shadow:var(--shadow);transform:rotate(2deg)}
+.ticket{position:absolute;left:-1.5rem;bottom:2rem;background:var(--white);color:var(--bg);padding:.9rem 1.2rem;border-radius:12px;box-shadow:var(--shadow);transform:rotate(-4deg);font-weight:700;line-height:1.3}
+.ticket b{font-family:var(--display);font-weight:400;font-size:1.8rem;color:var(--brick);display:block}
+
+/* Menu */
+#menu{background:var(--bg-2)}
+.tabs{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:2rem}
+.tab{padding:.6rem 1.2rem;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--muted);font:inherit;font-weight:500;cursor:pointer;transition:.2s}
+.tab:hover{color:var(--white);border-color:var(--ember)}
+.tab[aria-selected="true"]{background:var(--ember);color:#1b0f06;border-color:var(--ember);font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.4rem}
+.card{background:var(--bg-3);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;border:1px solid var(--line);transition:transform .25s,box-shadow .25s}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.card.hide{display:none}
+.card .ph{aspect-ratio:4/3;background:linear-gradient(135deg,var(--brick),var(--ember));overflow:hidden}
+.card img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.card:hover img{transform:scale(1.06)}
+.card-body{padding:1.1rem 1.2rem 1.3rem;display:flex;flex-direction:column;gap:.5rem;flex:1}
+.card-top{display:flex;justify-content:space-between;align-items:baseline;gap:.8rem}
+.card h3{font-size:1.4rem}
+.price{font-family:var(--display);font-size:1.4rem;color:var(--ember);white-space:nowrap}
+.card p{color:var(--muted);font-size:.95rem;flex:1}
+.card .btn{width:100%;margin-top:.5rem;padding:.7rem 1rem}
+
+/* Promos */
+.promos{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.4rem}
+.promo{position:relative;padding:1.8rem;border-radius:20px;background:linear-gradient(150deg,var(--brick),#8a2119);overflow:hidden;display:flex;flex-direction:column;gap:.6rem;box-shadow:var(--shadow)}
+.promo:nth-child(2){background:linear-gradient(150deg,var(--ember),#b3541c);color:#1b0f06}
+.promo:nth-child(3){background:linear-gradient(150deg,#f3e9de,#d9c8b6);color:var(--bg)}
+.promo .when{font-weight:700;font-size:.95rem;opacity:.85}
+.promo h3{font-size:2rem}
+.promo .big{font-family:var(--display);font-size:3rem;line-height:1}
+.promo p{flex:1;opacity:.92}
+.promo .btn{background:var(--bg);color:var(--white);align-self:flex-start}
+
+/* Location */
+#contacto{background:var(--bg-2)}
+.loc-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:2.5rem;align-items:start}
+.info{display:grid;gap:1.4rem}
+.info h3{font-size:1.4rem;color:var(--ember);margin-bottom:.2rem}
+.info p,.info li{color:var(--muted);list-style:none}
+.info strong{color:var(--white)}
+.map{border-radius:var(--r);overflow:hidden;border:1px solid var(--line);min-height:380px;box-shadow:var(--shadow)}
+.map iframe{width:100%;height:100%;min-height:380px;border:0;display:block}
+.info .cta-row{margin:0}
+
+/* Footer */
+footer{padding:2.5rem 0 5.5rem;border-top:1px solid var(--line);color:var(--muted);font-size:.92rem}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1.2rem}
+.foot ul{display:flex;flex-wrap:wrap;gap:1.2rem;list-style:none}
+.foot a:hover{color:var(--white)}
+.legal{margin-top:1.2rem;font-size:.85rem}
+
+/* Floating */
+.fab{position:fixed;right:1.2rem;bottom:1.2rem;z-index:60;width:60px;height:60px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.4);animation:pulse 2.4s infinite}
+.fab svg{width:32px;height:32px;fill:#fff}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.55),0 8px 24px rgba(0,0,0,.4)}70%{box-shadow:0 0 0 18px rgba(37,211,102,0),0 8px 24px rgba(0,0,0,.4)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0),0 8px 24px rgba(0,0,0,.4)}}
+.toast{position:fixed;left:50%;bottom:6rem;transform:translate(-50%,30px);background:var(--white);color:var(--bg);padding:.8rem 1.3rem;border-radius:12px;font-weight:700;box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:.3s;z-index:70;max-width:calc(100% - 2rem);text-align:center}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+/* Responsive */
+@media (max-width:860px){
+  section{padding:3.5rem 0}
+  .hero-grid,.loc-grid{grid-template-columns:1fr}
+  .hero-art{max-width:420px;margin-inline:auto}
+  .ticket{left:0}
+  .burger{display:block}
+  .links{position:absolute;top:68px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:rgba(23,18,15,.97);padding:.5rem 1.25rem 1.2rem;border-bottom:1px solid var(--line);display:none}
+  .links.open{display:flex}
+  .links a{display:block;padding:.9rem 0;border-bottom:1px solid var(--line)}
+  .links li:last-child a{border:0;text-align:center;margin-top:.8rem}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap nav" aria-label="Principal">
+    <a href="#inicio" class="logo" aria-label="Chicago In, inicio">Chicago <span>In</span></a>
+    <button class="burger" id="burger" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="links"><span></span></button>
+    <ul class="links" id="links">
+      <li><a href="#menu">Menú</a></li>
+      <li><a href="#promos">Promociones</a></li>
+      <li><a href="#contacto">Horarios y ubicación</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+      <li><a class="btn btn-primary" data-wa href="#" target="_blank" rel="noopener">Pedir por WhatsApp</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="inicio">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Antojo grande, <em>cerca del Tec.</em></h1>
+        <p>Hamburguesas jugosas, boneless y alitas con la sazón que se te antoja después de clase. Porciones generosas y precios pensados para estudiantes.</p>
+        <div class="cta-row">
+          <a class="btn btn-ghost" href="#menu">Ver menú completo</a>
+          <a class="btn btn-primary" data-wa href="#" target="_blank" rel="noopener">Hacer pedido por WhatsApp</a>
+        </div>
+        <ul class="badges">
+          <li>Servicio para llevar</li>
+          <li>A pasos del Tec</li>
+          <li>Sabor garantizado</li>
+        </ul>
+      </div>
+      <div class="hero-art">
+        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=70" alt="Hamburguesa con queso, lechuga y jitomate" width="800" height="1000" fetchpriority="high" onerror="this.style.background='linear-gradient(135deg,#c8372d,#e8833a)'">
+        <div class="ticket"><b>Av. Luis Elizondo 343</b>Distrito Tec · Monterrey</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="menu">
+    <div class="wrap">
+      <h2>El menú</h2>
+      <p class="lead">Elige tu categoría y pide directo por WhatsApp. Tu mensaje sale listo con el platillo que escogiste.</p>
+      <div class="tabs" role="tablist" aria-label="Categorías del menú" id="tabs"></div>
+      <div class="grid" id="grid" role="tabpanel" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section id="promos">
+    <div class="wrap">
+      <h2>Promos para estudiantes</h2>
+      <p class="lead">Combos y días especiales para comer bien sin vaciar la cartera. Muestra tu credencial del Tec y pregunta por extras.</p>
+      <div class="promos">
+        <article class="promo">
+          <span class="when">Todos los días</span>
+          <h3>Combo Foráneo</h3>
+          <div class="big">$129</div>
+          <p>Chicago Classic Burger, papas sazonadas y refresco de 355 ml. Lo que necesitas lejos de casa.</p>
+          <a class="btn" data-wa data-msg="el Combo Foráneo ($129)" href="#" target="_blank" rel="noopener">Pedir este combo</a>
+        </article>
+        <article class="promo">
+          <span class="when">Martes</span>
+          <h3>Martes de Alitas</h3>
+          <div class="big">2x1</div>
+          <p>Compra una orden de 8 alitas en cualquier sabor y llévate otra igual. Ideal para compartir en la tarde.</p>
+          <a class="btn" data-wa data-msg="la promo Martes de Alitas (2x1)" href="#" target="_blank" rel="noopener">Pedir esta promo</a>
+        </article>
+        <article class="promo">
+          <span class="when">Lunes a viernes, 12:00 a 4:00 PM</span>
+          <h3>Promo Lunch</h3>
+          <div class="big">$99</div>
+          <p>Sandwich Chicago Melt con papas y bebida. Rápido, completo y listo para llevar entre clases.</p>
+          <a class="btn" data-wa data-msg="la Promo Lunch ($99)" href="#" target="_blank" rel="noopener">Pedir esta promo</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto">
+    <div class="wrap">
+      <h2>Horarios y ubicación</h2>
+      <p class="lead">Estamos en Distrito Tec, a unos minutos caminando del campus.</p>
+      <div class="loc-grid">
+        <div class="info">
+          <div>
+            <h3>Dirección</h3>
+            <p>Av. Luis Elizondo 343, Col. Altavista, Monterrey, N.L. (Zona Tec)</p>
+          </div>
+          <div>
+            <h3>Horarios</h3>
+            <ul>
+              <li><strong>Lunes a sábado:</strong> 12:00 PM a 10:30 PM</li>
+              <li><strong>Domingo:</strong> cerrado</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Teléfono y WhatsApp</h3>
+            <p><a id="tel" href="#"></a></p>
+          </div>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="https://www.google.com/maps/dir/?api=1&destination=Av.+Luis+Elizondo+343,+Altavista,+Monterrey,+N.L." target="_blank" rel="noopener">Cómo llegar</a>
+            <a class="btn btn-wa" data-wa href="#" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+          </div>
+        </div>
+        <div class="map">
+          <iframe title="Mapa de Chicago In en Av. Luis Elizondo, Monterrey" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Av.+Luis+Elizondo+343,+Altavista,+Monterrey,+N.L.&output=embed"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <a href="#inicio" class="logo">Chicago <span>In</span></a>
+      <ul>
+        <li><a href="#menu">Menú</a></li>
+        <li><a href="#promos">Promociones</a></li>
+        <li><a href="#contacto">Ubicación</a></li>
+        <li><a data-wa href="#" target="_blank" rel="noopener">WhatsApp</a></li>
+      </ul>
+    </div>
+    <p class="legal">&copy; <span id="year"></span> Chicago In. Todos los derechos reservados. Precios en MXN y sujetos a cambio sin previo aviso. Las imágenes son ilustrativas.</p>
+  </div>
+</footer>
+
+<a class="fab" data-wa href="#" target="_blank" rel="noopener" aria-label="Pedir por WhatsApp">
+  <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16.04 3C9.4 3 4 8.38 4 15c0 2.12.56 4.18 1.62 6L4 29l8.2-1.58A12.1 12.1 0 0 0 16.04 27C22.66 27 28 21.62 28 15S22.66 3 16.04 3zm0 21.9c-1.78 0-3.52-.48-5.04-1.38l-.36-.22-4.86.94.98-4.7-.24-.38A9.8 9.8 0 0 1 6.2 15c0-5.42 4.42-9.8 9.84-9.8 5.4 0 9.76 4.38 9.76 9.8s-4.36 9.9-9.76 9.9zm5.4-7.34c-.3-.14-1.74-.86-2.02-.96-.26-.1-.46-.14-.66.14-.2.3-.76.96-.94 1.16-.16.2-.34.22-.64.08-.3-.14-1.24-.46-2.36-1.46-.88-.78-1.46-1.74-1.64-2.04-.16-.3 0-.46.14-.6.14-.14.3-.34.44-.5.16-.18.2-.3.3-.5.1-.2.06-.38-.02-.52-.08-.14-.66-1.6-.9-2.18-.24-.58-.48-.5-.66-.5h-.56c-.2 0-.52.08-.8.38-.26.3-1.04 1.02-1.04 2.5s1.08 2.9 1.22 3.1c.16.2 2.1 3.2 5.08 4.5.7.3 1.26.48 1.7.62.72.22 1.36.2 1.88.12.58-.08 1.74-.72 1.98-1.4.24-.7.24-1.28.16-1.4-.06-.14-.26-.22-.56-.36z"/></svg>
+</a>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+  // ====== CONFIGURACIÓN (edita aquí) ======
+  var WA_NUMBER = "528100000000";            // Formato: 52 + 10 dígitos, sin signos
+  var PHONE_LABEL = "+52 81 0000 0000";      // Cómo se muestra en la página
+  var GREETING = "Hola Chicago In, quiero hacer un pedido";
+  // ======================================
+
+  var img = function(id){ return "https://images.unsplash.com/photo-" + id + "?auto=format&fit=crop&w=600&h=450&q=70"; };
+  var CATS = ["Todos","Hamburguesas & Sandwiches","Boneless & Alitas","Snacks & Acompañamientos","Bebidas"];
+  var MENU = [
+    {n:"Chicago Classic Burger",c:1,p:89,i:"1568901346375-23c9450c58cd",d:"Carne de res 150 g, queso americano, lechuga, jitomate, cebolla y nuestra salsa de la casa en pan de mantequilla."},
+    {n:"Double Bacon Burger",c:1,p:129,i:"1553979459-d2229ba7433b",d:"Doble carne, doble queso cheddar, tocino crujiente y cebolla caramelizada. Para hambre de verdad."},
+    {n:"Chicago Melt Sandwich",c:1,p:95,i:"1528735602780-2552fd46c7af",d:"Pollo a la plancha, queso derretido, jitomate y aderezo de ajo en pan tostado."},
+    {n:"Boneless BBQ 250 g",c:2,p:119,i:"1626645738196-c2a7c87a8f58",d:"Boneless crujientes bañados en salsa BBQ ahumada. Incluye aderezo ranch y zanahoria."},
+    {n:"Boneless Búfalo 250 g",c:2,p:119,i:"1567620832903-9fc6debc209f",d:"Boneless con salsa búfalo de picor medio, con apio y aderezo ranch."},
+    {n:"Alitas x8 (sabor a elegir)",c:2,p:139,i:"1608039829572-78524f79c4c7",d:"Ocho alitas en BBQ, búfalo o mango habanero. Con aderezo y verduras."},
+    {n:"Papas Sazonadas Especiales",c:3,p:49,i:"1573080496219-bb080dd4f877",d:"Papas a la francesa con nuestra mezcla de especias y un toque de limón."},
+    {n:"Aros de Cebolla",c:3,p:59,i:"1639024471283-03518883512d",d:"Aros empanizados y dorados, con aderezo chipotle para mojar."},
+    {n:"Nachos Chicago",c:3,p:79,i:"1513456852971-30c0b8199d4d",d:"Totopos con queso fundido, frijoles, jalapeño y pico de gallo."},
+    {n:"Malteada de Vainilla o Chocolate",c:4,p:65,i:"1572490122747-3968b75cc699",d:"Espesa, cremosa y con crema batida. Cuéntanos tu sabor favorito en el pedido."},
+    {n:"Refresco 355 ml",c:4,p:25,i:"1581636625402-29b2a704ef13",d:"Refresco bien frío. Pregunta por los sabores disponibles del día."},
+    {n:"Agua de Sabor 500 ml",c:4,p:30,i:"1556679343-c7306c1976bc",d:"Hecha en casa: jamaica, limón con chía o horchata, según el día."}
+  ];
+
+  var waUrl = function(msg){ return "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(msg || GREETING); };
+  var $ = function(s){ return document.querySelector(s); };
+  var toast = $("#toast"), tt;
+  function notify(t){ toast.textContent = t; toast.classList.add("show"); clearTimeout(tt); tt = setTimeout(function(){ toast.classList.remove("show"); }, 3200); }
+
+  // Enlaces de WhatsApp generales y de promos
+  document.querySelectorAll("[data-wa]").forEach(function(a){
+    var m = a.getAttribute("data-msg");
+    a.href = waUrl(m ? "Hola Chicago In, quiero pedir " + m : GREETING);
+  });
+  var tel = $("#tel"); tel.textContent = PHONE_LABEL; tel.href = "tel:+" + WA_NUMBER;
+  $("#year").textContent = new Date().getFullYear();
+
+  // Menú
+  var grid = $("#grid"), tabs = $("#tabs");
+  var money = new Intl.NumberFormat("es-MX",{style:"currency",currency:"MXN",maximumFractionDigits:0});
+  MENU.forEach(function(it){
+    var el = document.createElement("article");
+    el.className = "card"; el.dataset.cat = it.c;
+    el.innerHTML = '<div class="ph"><img src="' + img(it.i) + '" alt="' + it.n + '" width="600" height="450" loading="lazy"></div>' +
+      '<div class="card-body"><div class="card-top"><h3>' + it.n + '</h3><span class="price">' + money.format(it.p) + '</span></div>' +
+      '<p>' + it.d + '</p><button class="btn btn-primary" type="button">Pedir este platillo</button></div>';
+    el.querySelector("img").addEventListener("error", function(){ this.style.display = "none"; });
+    el.querySelector("button").addEventListener("click", function(){
+      var msg = "Hola Chicago In, quiero pedir: " + it.n + " (" + money.format(it.p) + " MXN)";
+      notify("Abriendo WhatsApp con tu pedido: " + it.n);
+      window.open(waUrl(msg), "_blank", "noopener");
+    });
+    grid.appendChild(el);
+  });
+
+  CATS.forEach(function(name, idx){
+    var b = document.createElement("button");
+    b.className = "tab"; b.type = "button"; b.role = "tab"; b.textContent = name;
+    b.setAttribute("aria-selected", idx === 0 ? "true" : "false");
+    b.addEventListener("click", function(){
+      tabs.querySelectorAll(".tab").forEach(function(t){ t.setAttribute("aria-selected","false"); });
+      b.setAttribute("aria-selected","true");
+      grid.querySelectorAll(".card").forEach(function(c){
+        c.classList.toggle("hide", idx !== 0 && Number(c.dataset.cat) !== idx);
+      });
+    });
+    tabs.appendChild(b);
+  });
+
+  // Navegación móvil
+  var burger = $("#burger"), links = $("#links");
+  function closeNav(){ links.classList.remove("open"); burger.setAttribute("aria-expanded","false"); burger.setAttribute("aria-label","Abrir menú de navegación"); }
+  burger.addEventListener("click", function(){
+    var open = links.classList.toggle("open");
+    burger.setAttribute("aria-expanded", open);
+    burger.setAttribute("aria-label", open ? "Cerrar menú de navegación" : "Abrir menú de navegación");
+  });
+  links.addEventListener("click", function(e){ if(e.target.closest("a")) closeNav(); });
+  document.addEventListener("keydown", function(e){ if(e.key === "Escape") closeNav(); });
+})();
+</script>
+</body>
+</html>
